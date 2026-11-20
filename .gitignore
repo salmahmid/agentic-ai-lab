@@ -1,0 +1,47 @@
+# Secrets et environnements
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# Index vectoriels, caches et fichiers générés
+chroma_db/
+**/.chroma/
+**/chroma/
+data/chroma_laboratoire/
+*.sqlite
+*.sqlite3
+customer_support/data/uploads/
+langgraph_workflows/data/uploads/
+.langgraph_api/
+
+# Journaux et identifiants
+*.log
+credentials*
+*.pem
+*.key
+
+# Système
+.DS_Store
+
+# Supports de cours et photo personnelle déjà présents dans le dossier local.
+# Ils ne font pas partie du code du laboratoire et ne doivent pas être publiés.
+IMG_7470.heic
+*.heic
+Support*.pdf
+agentic_ai_with_langchain_V3.ipynb
+demo-langgraph.ipynb

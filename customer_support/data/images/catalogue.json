@@ -1,0 +1,16 @@
+{
+  "img_px200_01": {
+    "titre": "Voyant papier clignotant",
+    "description": "Pictogramme fictif d'une feuille de papier avec un voyant orange clignotant. Sur l'imprimante PX-200, il indique un bac papier vide ou un bourrage papier.",
+    "page": 2,
+    "fichier": "img_px200_01.png",
+    "modele": "PX-200"
+  },
+  "img_px200_02": {
+    "titre": "Logement de cartouche",
+    "description": "Schéma fictif du logement de cartouche de l'imprimante PX-200. La cartouche se retire après ouverture du capot avant.",
+    "page": 3,
+    "fichier": "img_px200_02.png",
+    "modele": "PX-200"
+  }
+}

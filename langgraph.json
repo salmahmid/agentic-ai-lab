@@ -1,0 +1,17 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "lineaire": "./langgraph_workflows/fundamentals/linear.py:graph",
+    "conditionnel": "./langgraph_workflows/fundamentals/conditional.py:graph",
+    "reducteur": "./langgraph_workflows/fundamentals/reducer_example.py:graph",
+    "cycle": "./langgraph_workflows/fundamentals/cycle.py:graph",
+    "memoire": "./langgraph_workflows/fundamentals/checkpoint.py:graph",
+    "rag_agentique": "./langgraph_workflows/agentic_rag/graph.py:graph",
+    "support_client": "./customer_support/graph.py:graph"
+  },
+  "env": ".env",
+  "python_version": "3.12",
+  "http": {
+    "app": "./langgraph_workflows/studio_cors.py:app"
+  }
+}

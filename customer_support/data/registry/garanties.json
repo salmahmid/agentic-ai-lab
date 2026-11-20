@@ -1,0 +1,17 @@
+{
+  "description": "Registre fictif de garantie. Le statut n'est pas stocké : il est calculé à partir des dates.",
+  "enregistrements": [
+    {
+      "numero_serie": "PX200-0042",
+      "modele": "PX-200",
+      "date_achat": "2025-11-01",
+      "duree_mois": 24
+    },
+    {
+      "numero_serie": "PX200-0007",
+      "modele": "PX-200",
+      "date_achat": "2023-01-15",
+      "duree_mois": 12
+    }
+  ]
+}

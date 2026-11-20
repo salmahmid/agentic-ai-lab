@@ -1,0 +1,113 @@
+{
+  "name": "Agentic AI Lab — client MCP",
+  "nodes": [
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000001",
+      "name": "Message de chat",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "parameters": {
+        "public": false,
+        "options": {}
+      }
+    },
+    {
+      "id": "a1b2c3d4-0002-4000-8000-000000000002",
+      "name": "Agent MCP",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [520, 300],
+      "parameters": {
+        "promptType": "auto",
+        "options": {
+          "systemMessage": "Tu es l'assistant du laboratoire Agentic AI Lab. Utilise les outils MCP connectés. Si web_search signale une clé absente, explique l'erreur sans inventer de résultat."
+        }
+      }
+    },
+    {
+      "id": "a1b2c3d4-0003-4000-8000-000000000003",
+      "name": "Modèle de chat",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [500, 520],
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {}
+      },
+      "credentials": {
+        "openAiApi": {
+          "id": "REMPLACER_APRES_IMPORT",
+          "name": "OpenAI du laboratoire"
+        }
+      }
+    },
+    {
+      "id": "a1b2c3d4-0004-4000-8000-000000000004",
+      "name": "Outils MCP",
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.2,
+      "position": [720, 520],
+      "parameters": {
+        "endpointUrl": "={{ $env.MCP_DEMO_URL || 'http://127.0.0.1:8000/mcp' }}",
+        "serverTransport": "httpStreamable",
+        "authentication": "none",
+        "include": "all",
+        "options": {}
+      }
+    },
+    {
+      "id": "a1b2c3d4-0005-4000-8000-000000000005",
+      "name": "Note de configuration",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [240, 40],
+      "parameters": {
+        "width": 560,
+        "height": 200,
+        "content": "## Import\n1. Créer un identifiant OpenAI et le relier au nœud Modèle de chat.\n2. Définir MCP_DEMO_URL, par exemple http://127.0.0.1:8000/mcp.\n3. Depuis Docker, remplacer 127.0.0.1 par host.docker.internal.\n4. Démarrer le serveur MCP Python avant d'exécuter le chat.\nCe fichier n'a pas été exécuté automatiquement dans n8n."
+      }
+    }
+  ],
+  "connections": {
+    "Message de chat": {
+      "main": [
+        [
+          {
+            "node": "Agent MCP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Modèle de chat": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Agent MCP",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Outils MCP": {
+      "ai_tool": [
+        [
+          {
+            "node": "Agent MCP",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false
+  }
+}
